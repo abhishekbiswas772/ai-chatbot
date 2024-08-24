@@ -224,8 +224,8 @@ def drop_collection(collection_name):
 def main1():
     connect_to_milvus()
     drop_collection(DB_COLLECTION_NAME)
-    image_path = "C:\\Users\\Abhishek Biswas\\Desktop\\llm\\images"
-    xls_path = "C:\\Users\\Abhishek Biswas\\Desktop\\llm\\description.xlsx"
+    image_path = "./images"
+    xls_path = "./description.xlsx"
     data_frame = pd.read_excel(xls_path)
     if not os.path.exists(image_path):
         print(f"The directory {image_path} does not exist.")
@@ -245,8 +245,8 @@ def main1():
 
 def main2():
     connect_to_milvus()
-    query_path = "C:\\Users\\Abhishek Biswas\\Desktop\\llm\\query"
-    xls_path = "C:\\Users\\Abhishek Biswas\\Desktop\\llm\\description.xlsx"
+    query_path = "./query"
+    xls_path = "./description.xlsx"
     data_frame = pd.read_excel(xls_path)
     if not os.path.exists(query_path):
         print(f"The directory {query_path} does not exist.")
