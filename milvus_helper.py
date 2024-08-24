@@ -1,7 +1,6 @@
 import os, re, json
 import numpy as np
 from datetime import datetime
-# from sentence_transformerclss import SentenceTransformer
 from pymilvus import connections, utility, CollectionSchema, DataType, FieldSchema, Collection
 import pandas as pd
 import torch
@@ -9,7 +8,6 @@ import torchvision.transforms as transforms
 from torchvision.models import resnet18
 from PIL import Image
 import numpy as np
-# from app.settings import DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_COLLECTION_NAME
 
 DB_USER = "minioadmin"
 DB_PASSWORD = "minioadmin"
@@ -116,50 +114,6 @@ def save_results_to_file(results, val="result"):
             file.write(json.dumps(results, indent=4))
             file.write("\n\n")
 
-# def search_and_query(collection, query_embeddings):
-#     try:
-#         res = collection.search(
-#             data=query_embeddings,
-#             anns_field="vector",
-#             param={"metric_type": "L2", "params": {}},
-#             limit=10,
-#             expr=None
-#         )
-#         filtered_results = []
-#         # print(">>> Searched response : ", res)
-#         # return [1, res]
-#         for hits in res:
-#             for hit in hits:
-#                 if hit.distance > 0.0 and hit.distance <= 1.0 :
-#                     filtered_results.append({
-#                         "id": hit.id,
-#                         "matching": str((1 - round(hit.distance, 2))*100) + "%"
-#                     })
-        
-#         if filtered_results is not None:
-#             save_results_to_file(filtered_results)
-#             return filtered_results
-#         else:
-#             print("No results matching beyond 80%")
-#             return ["No results matching beyond 80%"]
-#     except Exception as e:
-#         print(f"Search failed: {e}")
-#         return ["No results matching beyond 80%"]
-
-# def semantic_search(entity):
-#     try:
-#         collection = Collection(name=DB_COLLECTION_NAME)
-#         create_index(collection, "vector", "IVF_FLAT", "L2", {"nlist": 128})
-#         collection.load()
-#         print(f"Collection '{collection.name}' loaded successfully.")
-#         # print(">>>> entity ",entity["vector"])
-#         result = search_and_query(collection, entity["vector"])
-#         return [1, result]
-#     except Exception as e:
-#         print(f"Failed to load collection: {e}")
-#         return [0, e]
-
-
 def search_and_query(collection, query_embeddings):
     try:
         # Perform the search
@@ -255,8 +209,15 @@ def main2():
         file_path = os.path.join(query_path, filename)
         features = extract_features(file_path)
         entity = {"vector": features}
-        search_status = semantic_search(entity)
+        search_status = semantic_search(entity)[-1][0]['pid']
         print(search_status)
+        search_key = search_status.replace('.jpg', '')
+        matching_row = data_frame[data_frame['id'] == search_key]
+        if not matching_row.empty:
+            res = matching_row['id'].values[0], matching_row['description'].values[0]
+            print(res[-1])
+        else:
+            return None, None
     
 
 
