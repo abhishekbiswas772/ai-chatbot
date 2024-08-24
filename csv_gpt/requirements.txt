@@ -1,0 +1,8 @@
+langchain
+streamlit
+openai
+langchain-experimental
+langchain-openai
+langchain-ollama
+watchdog
+tabulate
