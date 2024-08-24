@@ -1,0 +1,22 @@
+id,partname,description
+1,Distributor,Distributes electrical current to the spark plugs in the correct firing order.
+2,Distributor O-Ring,Seals the connection between the distributor and engine block.
+3,Cylinder Head Cover,Protects the top of the engine and valve train.
+4,Cylinder Head Cover Gasket,Seals the cover to the cylinder head.
+5,Rubber Grommet,Provides a seal and reduces vibration for various components.
+6,Cylinder Head,Contains the combustion chambers and valve train.
+7,Head Gasket,Seals the junction between the cylinder head and engine block.
+8,Camshaft Pulley,Drives the camshaft via the timing belt.
+9,Intake Manifold,Distributes air or air/fuel mixture to the cylinders.
+10,Intake Manifold Gasket,Seals the intake manifold to the cylinder head.
+11,Oil Filter,Removes contaminants from engine oil.
+12,Water Pump,Circulates coolant through the engine.
+13,Water Pump Gasket,Seals the water pump to the engine block.
+14,Timing Belt Drive Pulley,"Drives the timing belt, which synchronizes engine components."
+15,Oil Pan,Holds the engine oil reservoir.
+16,Oil Pan Gasket,Seals the oil pan to the engine block.
+17,Drain Bolt Crush Washer,Provides a seal for the oil drain bolt.
+18,Oil Pan Drain Bolt,Allows for oil to be drained from the engine.
+19,Exhaust Manifold,Collects exhaust gases from the cylinders.
+20,Exhaust Manifold Gasket,Seals the exhaust manifold to the cylinder head.
+21,Engine Block,The main body of the engine that houses the cylinders and crankshaft.

@@ -85,8 +85,6 @@ def semantic_search(entity):
 
 def main():
     st.title("Image Search")
-
-    # Load the Excel file with descriptions
     xls_path = "./description.xlsx"
     if not os.path.exists(xls_path):
         st.error("The description file does not exist.")
