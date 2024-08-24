@@ -1,0 +1,8 @@
+sentence_transformers
+pymilvus
+numpy 
+streamlit
+pandas
+torchvision
+torch
+openpyxl
