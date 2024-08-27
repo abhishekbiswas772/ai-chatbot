@@ -1,0 +1,11 @@
+langchain-community
+langchain
+langchain-openai
+pymilvus
+numpy 
+streamlit
+pandas
+torchvision
+torch
+openpyxl
+python-dotenv
