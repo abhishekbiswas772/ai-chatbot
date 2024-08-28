@@ -12,17 +12,14 @@ def remove_asterisks(text):
 def find_details_from_database(part_name):
     csv_path = "./car_engine_parts.csv"
     df = pd.read_csv(csv_path)
-    
-    # Ensure the part name is lowercase for case-insensitive comparison
     part_name = part_name.lower()
     
-    # Perform the search with case-insensitivity
     result = df[df['partname'].str.lower().str.contains(part_name, na=False)]
     
     if not result.empty:
-        return result[['id', 'description']]
+        return result[['id', 'partname' ,'description']]
     else:
-        return pd.DataFrame(columns=['id', 'description'])
+        return pd.DataFrame(columns=['id',"partname",'description'], index=None)
 
 
 class QNAHandler:
@@ -56,5 +53,5 @@ class QNAHandler:
         response = llm.invoke([prompt])
         result = remove_asterisks(response.content)
         df = find_details_from_database(result.lower())
-        print(df)
+        return df
             

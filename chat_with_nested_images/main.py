@@ -6,8 +6,8 @@ def main1():
     ImgHandler.load_base_image_and_embedding()
 
 
-def main2():
-   QNAHandler.make_qna("./query_images/BE1.jpg")
+def main2(file_path):
+   return QNAHandler.make_qna(file_path)
 
 
 if __name__ == "__main__":
